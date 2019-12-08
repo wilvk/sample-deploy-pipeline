@@ -21,11 +21,6 @@ RUN apt-get update && \
    apt-get -y install docker-ce && \
    usermod -aG docker jenkins
 
-# install docker-machine
-RUN curl -L https://github.com/docker/machine/releases/download/v0.16.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine && \
-    chmod +x /tmp/docker-machine && \
-    cp /tmp/docker-machine /usr/local/bin/docker-machine
-
 # install docker-compose
 RUN apt-get update && apt-get -y install docker-compose 
 
