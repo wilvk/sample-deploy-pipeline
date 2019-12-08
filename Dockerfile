@@ -21,12 +21,20 @@ RUN apt-get update && \
    apt-get -y install docker-ce && \
    usermod -aG docker jenkins
 
+# install docker-machine
+RUN curl -L https://github.com/docker/machine/releases/download/v0.16.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine && \
+    chmod +x /tmp/docker-machine && \
+    cp /tmp/docker-machine /usr/local/bin/docker-machine
+
 # install docker-compose
 RUN apt-get update && apt-get -y install docker-compose 
 
 # copy and install plugins
 COPY plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/plugins.txt
+
+# allow jenkins user to access docker
+RUN usermod -aG docker jenkins
 
 # drop back to the regular jenkins user - good practice
 USER jenkins
