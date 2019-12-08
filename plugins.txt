@@ -1,0 +1,15 @@
+build-pipeline-plugin:latest
+plain-credentials:latest
+workflow-job:latest
+pipeline-model-api:latest
+workflow-step-api:latest
+workflow-aggregator:latest
+workflow-multibranch:latest
+workflow-support:latest
+workflow-durable-task-step:latest
+git:latest
+workflow-scm-step:latest
+workflow-api:latest
+script-security:latest
+scm-api:latest
+workflow-basic-steps:latest
