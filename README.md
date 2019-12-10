@@ -18,6 +18,8 @@ docker run -it -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home 
 
 ### to get admin password
 
+(wait a minute for the daemon / web server to finish starting up)
+
 ```bash
 docker exec -it $(docker ps -qf "ancestor=jenkins-docker") cat /var/jenkins_home/secrets/initialAdminPassword
 ```
@@ -26,12 +28,21 @@ docker exec -it $(docker ps -qf "ancestor=jenkins-docker") cat /var/jenkins_home
 
 Jenkins web server is on `localhost:8080` user: admin password: _from above_
 
+- Install the recommended plugins
+- Add new item > freestyle project
+- Select source code management: git and enter the sample-flask-app repository url (https)
+- add build step > execute shell > `docker-compose down; docker-compose up -d`
+- Save
+- Build Now
+
 ### to get a terminal
 ```
 docker exec -it $(docker ps -qf "ancestor=jenkins-docker") bash 
 ```
 
-### remove jenkins-docker image 
+You can find the working directory at `/var/jenkins_home/workspace/`.
+
+### remove jenkins-docker image (to clean up when we're done)
 
 ```
 docker kill $(docker ps -qf "ancestor=jenkins-docker") 2> /dev/null ; docker image rm jenkins-docker --force; docker image prune --force; docker system prune --force
