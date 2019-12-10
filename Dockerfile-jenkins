@@ -1,5 +1,5 @@
 FROM jenkins/jenkins:lts
-MAINTAINER 4oh4
+MAINTAINER wilvk
 
 # Derived from https://github.com/4OH4/jenkins-docker/blob/master/Dockerfile
 
@@ -22,7 +22,7 @@ RUN apt-get update && \
    usermod -aG docker jenkins
 
 # install docker-compose
-RUN apt-get update && apt-get -y install docker-compose 
+RUN apt-get update && apt-get -y install docker-compose
 
 # copy and install plugins
 COPY plugins.txt /usr/share/jenkins/plugins.txt

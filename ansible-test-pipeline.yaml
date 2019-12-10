@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - git:
+        repo: https://github.com/wilvk/sample-flask-app
+        dest: /ansible/sample-flask-app
+    - shell:
+        cmd: docker-compose up -d
+        chdir: /ansible/sample-flask-app
