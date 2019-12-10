@@ -40,6 +40,7 @@ Jenkins web server is on `localhost:8080` user: admin password: _from above_
 This will execute the flask app on the jenkins server.
 
 ### to get a terminal on the jenkins container
+
 ```bash
 docker exec -it $(docker ps -qf "ancestor=jenkins-docker") bash 
 ```
