@@ -36,3 +36,4 @@ docker exec -it $(docker ps -qf "ancestor=jenkins-docker") bash
 ```
 docker kill $(docker ps -qf "ancestor=jenkins-docker") 2> /dev/null ; docker image rm jenkins-docker --force; docker image prune --force; docker system prune --force
 ```
+
