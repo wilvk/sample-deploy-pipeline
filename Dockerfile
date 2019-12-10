@@ -38,10 +38,16 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - \
 
 RUN apt-get update && apt-get -y install docker-compose
 
+RUN apt-get update && apt-get -y install ansible
+
 COPY plugins.txt /usr/share/jenkins/plugins.txt
+
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/plugins.txt
 
 COPY entrypoint.sh /entrypoint.sh
+
 RUN chmod +x /entrypoint.sh
+
 ENTRYPOINT ["/entrypoint.sh"]
+
 HEALTHCHECK CMD curl -sSLf http://localhost:8080/login >/dev/null || exit 1
