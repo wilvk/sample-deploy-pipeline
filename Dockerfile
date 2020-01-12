@@ -11,8 +11,12 @@ RUN apt-get update \
      software-properties-common \
      vim \
      wget \
+     python3-dev \
+     gcc \
+     ansible \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
+
 
 ARG GOSU_VERSION=1.10
 
