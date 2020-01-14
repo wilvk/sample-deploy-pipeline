@@ -11,8 +11,12 @@ RUN apt-get update \
      software-properties-common \
      vim \
      wget \
+     python3-dev \
+     gcc \
+     ansible \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
+
 
 ARG GOSU_VERSION=1.10
 
@@ -37,8 +41,6 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - \
  && usermod -aG docker jenkins
 
 RUN apt-get update && apt-get -y install docker-compose
-
-RUN apt-get update && apt-get -y install ansible
 
 COPY plugins.txt /usr/share/jenkins/plugins.txt
 
