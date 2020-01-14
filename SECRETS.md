@@ -2,7 +2,7 @@
 
 ### Go to the deploy workspace
 
-On the host, hell into the container with the command:
+On the host machine, shell into the container with the command:
 
 ```
 docker exec -it $(docker ps -qf "ancestor=jenkins-docker") bash 
@@ -51,7 +51,7 @@ Save the file, commit the changes and push the commit to your fork of the reposi
 
 ### Updating the app config
 
-In the sample-flask-app still, open the file `web/config.py` in your editor.
+In the sample-flask-app repository open the file `web/config.py` in your editor.
 
 Change line 7 and 8 from:
 
@@ -93,7 +93,7 @@ Click on the '(global)' link next to the 'Jenkins' link.
 Select 'Add Credentials'
 Change 'Kind' to 'Secret Text'
 Enter your password in the 'Secret' textbox
-Enter 'ANSIBLE_VAULT_PASSWORD' in the 'Id' textbox
+Enter `ANSIBLE_VAULT_PASSWORD` in the 'Id' textbox
 Click 'OK'
 
 #### Add the Ansible Vault Password to the pipeline and export the database credentials to the environment
@@ -101,7 +101,7 @@ Click 'OK'
 Go into the config for your project
 
 Under 'Bindings', select the 'Add' dropdown box and select 'Secret text'
-In the 'Variable' textbox enter ANSIBLE_VAULT_PASSWORD'
+In the 'Variable' textbox enter `ANSIBLE_VAULT_PASSWORD`
 
 ```
 set +x
@@ -115,7 +115,7 @@ rm .vault_pass.txt
 
 Save the changes and select 'Build Now'.
 
-The logs may show that the password is not set. This is because we are using the default postgres credentials. In a production environment the username/password should not be the default credentials.
+The logs may show that the password is not set. This is because we are using the default Postgres credentials. In a production environment the username/password should not be the default credentials.
 
 Check your application at `localhost:8000` it should be running.
 
