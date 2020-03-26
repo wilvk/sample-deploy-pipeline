@@ -4,25 +4,17 @@ Jenkins, docker and docker-compose in a container for building and deploying pro
 
 ## instructions
 
-### build
+### getting started
+
+You will need to source the file `SOURCEME.sh`. For example:
 
 ```bash
-docker build -t jenkins-docker .
+source SOURCEME.sh
 ```
 
-### run as deamon with web server on port 8080
+To start the Jenkins container, enter `appsec_start`.
 
-```bash
-docker run -it -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock --restart unless-stopped jenkins-docker
-```
-
-### to get admin password
-
-(wait a minute for the daemon / web server to finish starting up)
-
-```bash
-docker exec -it $(docker ps -qf "ancestor=jenkins-docker") cat /var/jenkins_home/secrets/initialAdminPassword
-```
+Once complete you will see the Jenkins admin password to log into the Jenkins server.
 
 ### logging in
 
