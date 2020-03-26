@@ -2,11 +2,13 @@
 
 Jenkins, docker and docker-compose in a container for building and deploying projects.
 
-## instructions
+## Instructions
 
 ### getting started
 
-You will need to source the file `SOURCEME.sh`. For example:
+You will need to source the file `SOURCEME.sh`.
+
+For example:
 
 ```bash
 source SOURCEME.sh
@@ -14,13 +16,15 @@ source SOURCEME.sh
 
 To start the Jenkins container, enter `appsec_start`.
 
-Once complete you will see the Jenkins admin password to log into the Jenkins server.
+Once complete, you will see the Jenkins admin password to log into the Jenkins server.
 
-### logging in
+### Loggin in
 
-Jenkins web server is on `localhost:8080` user: admin password: _from above_
+Jenkins web server is on `localhost:8080` 
 
-### setting up the pipeline
+The admin password is _as described above_ or can be obtained by running `appsec_get_jenkins_admin_creds`.
+
+### Setting up the pipeline
 
 - Install the recommended plugins
 - Select 'Continue as admin' then 'Save and Finish' and 'Restart' then refresh the browser and re-enter the admin credentials.
@@ -35,17 +39,20 @@ Jenkins web server is on `localhost:8080` user: admin password: _from above_
 
 This will execute the flask app on the jenkins server.
 
-### to get a terminal on the jenkins container
+## Additional Notes
+
+### To get a terminal on the jenkins container
 
 ```bash
-docker exec -it $(docker ps -qf "ancestor=jenkins-docker") bash 
+appsec_get_jenkins_shell
 ```
-
-You can find the working directory at `/var/jenkins_home/workspace/`.
 
 ### remove jenkins-docker image (to clean up when we're done)
 
 ```bash
-docker kill $(docker ps -qf "ancestor=jenkins-docker") 2> /dev/null ; docker image rm jenkins-docker --force; docker image prune --force
+appsec_cleanup
 ```
 
+### Jenkins working directory
+
+You can find the working directory at `/var/jenkins_home/workspace/`.

@@ -1,6 +1,6 @@
 fileignoreconfig:
-- filename: SOURCEME.sh
-  checksum: 8d87269a570df4670e362f979b736181c96d860d14ea633e4897139af3320728
-
 - filename: README.md
   checksum: c7fae38b4ab86708aa86b1ac0be3c4725c229200117500f7f3cc97900ef7354c
+
+- filename: SOURCEME.sh
+  checksum: 8be79e924d3b8d179b7084798c9231a4e58846cf1572e797f2134445984a1703
