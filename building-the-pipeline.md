@@ -34,4 +34,4 @@ Select 'Save'. Then from the main Jenkins menu select 'Build Now'.
 
 Once the build has finished, browse to `localhost:8000` to see your app.
 
-![](images/14.png)
+![](images/15.png)
