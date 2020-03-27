@@ -1,13 +1,39 @@
 # Building the pipeline
 
-Select 'New item', enter the name 'AppSec 101' for the project, select 'Feestyle project' and click 'OK'
+From the side menu select 'New item'
 
-- Select source code management: git and enter the HTTPS URL of your fork of the `sample-flask-app` repository
-- Under the heading 'Build' select 'Add build step' > 'Execute shell'
-  In the 'Command' box enter: `docker-compose down; docker-compose up -d; sleep 10; docker-compose logs`
-- Save
-- Build Now
-- On the command line on your host machine, enter `docker ps` and you will see the app running.
-- In the browser, browse to 'localhost:8000' to see your app.
+![](images/8.png)
 
-This will execute the flask app on the jenkins server.
+Enter the name 'sample-flask-app' for the project, select 'Feestyle project' and click 'OK'
+
+The deployment pipeline configuration will look like the following:
+
+![](images/9.png)
+
+Under the heading 'Source Code Management', select the 'Git' radio button.
+Enter the URL of your fork of the `sample-flask-app` repository. e.g. `https://github.com/wilvk/sample-flask-app`
+
+![](images/11.png)
+
+Under the heading 'Build' select 'Add build step' > 'Execute shell'.
+
+![](images/12.png)
+
+In the 'Command' box enter the following: 
+
+```
+docker-compose down
+docker-compose up -d
+sleep 30
+docker-compose logs
+```
+
+![](images/13.png)
+
+Select 'Save'. Then from the main Jenkins menu select 'Build Now'.
+
+![](images/14.png)
+
+Once the build has finished, browse to `localhost:8000` to see your app.
+
+![](images/14.png)
