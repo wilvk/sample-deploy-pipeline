@@ -4,10 +4,9 @@ From the side menu select 'New item'
 
 ![](images/8.png)
 
-![](images/9.png)
-
 Enter the name 'sample-flask-app' for the project, select 'Feestyle project' and click 'OK'
 
+![](images/9.png)
 
 Under the heading 'Source Code Management', select the 'Git' radio button.
 Enter the URL of your fork of the `sample-flask-app` repository. e.g. `https://github.com/wilvk/sample-flask-app`
