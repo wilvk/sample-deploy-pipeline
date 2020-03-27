@@ -24,7 +24,7 @@ Once complete, you will see the Jenkins admin password to log into the Jenkins s
 
 The Jenkins web server is on `localhost:8080` You will see the following page.
 
-![](images/2.jpg)
+![](images/2.png)
 
 The admin password is _as described above_ or can be obtained by running `appsec_get_jenkins_admin_creds`.
 
