@@ -4,8 +4,8 @@ Jenkins, docker and docker-compose in a container for building and deploying pro
 
 ## Instructions
 
-[Getting Started](getting-started.md)
-[Logging In](logging-in.md)
-[Building the Pipeline](building-the-pipeline.md)
+- [Getting Started](getting-started.md)
+- [Logging In](logging-in.md)
+- [Building the Pipeline](building-the-pipeline.md)
 
-[Additional Notes](additional-notes.md)
+- [Additional Notes](additional-notes.md)
