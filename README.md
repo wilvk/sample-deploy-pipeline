@@ -18,17 +18,45 @@ To start the Jenkins container, enter `appsec_start`.
 
 Once complete, you will see the Jenkins admin password to log into the Jenkins server.
 
-### Loggin in
+![](images/1.png)
 
-Jenkins web server is on `localhost:8080` 
+### Logging in
+
+The Jenkins web server is on `localhost:8080` You will see the following page.
+
+![](images/2.jpg)
 
 The admin password is _as described above_ or can be obtained by running `appsec_get_jenkins_admin_creds`.
 
-### Setting up the pipeline
+Install the recommended plugins
 
-- Install the recommended plugins
-- Select 'Continue as admin' then 'Save and Finish' and 'Restart' then refresh the browser and re-enter the admin credentials.
-- Select 'New item', enter a name for the project, select 'Feestyle project' and click 'OK'
+![](images/3.png)
+
+You will then see the plugins being installed.
+
+![](images/4.png)
+
+Select 'Continue as admin'.
+
+![](images/5.png)
+
+Select 'Save and Finish'.
+
+![](images/6.png)
+
+Select 'Start using Jenkins'.
+
+![](images/7.png)
+
+Jenkins should now be setup.
+
+![](images/8.png)
+
+### Building the pipeline
+
+Select 'New item', enter the name 'AppSec 101' for the project, select 'Feestyle project' and click 'OK'
+
+
 - Select source code management: git and enter the HTTPS URL of your fork of the `sample-flask-app` repository
 - Under the heading 'Build' select 'Add build step' > 'Execute shell'
   In the 'Command' box enter: `docker-compose down; docker-compose up -d; sleep 10; docker-compose logs`
