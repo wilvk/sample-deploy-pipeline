@@ -55,7 +55,7 @@ In the sample-flask-app repository open the file `web/config.py` in your editor.
 
 Change line 7 and 8 from:
 
-```
+```python3
     DB_NAME = "postgres"
     DB_USER = "postgres"
 
@@ -63,7 +63,7 @@ Change line 7 and 8 from:
 
 to:
 
-```
+```python3
     DB_USER = os.environ["DB_USER"]
     DB_PASS = os.environ["DB_PASS"]
 

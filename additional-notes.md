@@ -10,22 +10,20 @@ appsec_get_jenkins_shell
 
 You can find the working directory at `/var/jenkins_home/workspace/`.
 
-## To remove the `jenkins-docker` image, container and volume:
+## To remove the Jenkins image, container and volume:
 
 ```bash
 appsec_cleanup
 ```
 
-## To stop the `jenkins-docker` container temporarily:
+## To stop the Jenkins container temporarily:
 
 ```bash
 appsec_start
 ```
 
-## To restart a stopped `jenkins-docker` container:
+## To restart a stopped Jenkins container:
 
 ```bash
 appsec_start_jenkins
 ```
-
-`
