@@ -1,6 +1,6 @@
-## Secrets Management with Ansible-Vault
+# Secrets Management with Ansible-Vault
 
-### Go to the deploy workspace
+## Go to the deploy workspace
 
 On the host machine, shell into the container with the command:
 
@@ -8,7 +8,7 @@ On the host machine, shell into the container with the command:
 docker exec -it $(docker ps -qf "ancestor=jenkins-docker") bash 
 ```
 
-### Create an Ansible Vault file
+## Create an Ansible Vault file
 
 ```
 ansible-vault create env_secrets
@@ -27,7 +27,7 @@ DB_PASS=postgres
 
 Press `Esc` to exit insert mode. Enter ':wq' to write the changes and exit the editor.
 
-### Viewing the vault file
+## Viewing the vault file
 
 To view the contents of the vault file, enter the command:
 
@@ -41,7 +41,7 @@ To view the encrypted vault file enter:
 cat env_secrets
 ```
 
-### Add the vault file to the sample-flask-app
+## Add the vault file to the sample-flask-app
 
 Copy the encrypted vault file contents from the previous `cat env_secrets` command to the clipboard.
 
@@ -49,7 +49,7 @@ Create a file in the sample-flask-app repository called `env_secrets` and paste 
 
 Save the file, commit the changes and push the commit to your fork of the repository. This is error-prone, so check what is pasted is what is in the original file before saving.
 
-### Updating the app config
+## Updating the app config
 
 In the sample-flask-app repository open the file `web/config.py` in your editor.
 
@@ -82,11 +82,11 @@ This will allow the environment variables to be passed through from the jenkins 
 
 Do another commit and push with your changes.
 
-### Set the environment variables in the jenkins host for the deploy pipeline
+## Set the environment variables in the jenkins host for the deploy pipeline
 
 Browse to `localhost:8080` and login to the Jenkins server if necessary.
 
-#### Add the Ansible Vault password to Jenkins Credential Store
+### Add the Ansible Vault password to Jenkins Credential Store
 
 From the Jenkins Dashboard, select 'Credentials'
 Click on the '(global)' link next to the 'Jenkins' link.
@@ -96,7 +96,7 @@ Enter your password in the 'Secret' textbox
 Enter `ANSIBLE_VAULT_PASSWORD` in the 'Id' textbox
 Click 'OK'
 
-#### Add the Ansible Vault Password to the pipeline and export the database credentials to the environment
+### Add the Ansible Vault Password to the pipeline and export the database credentials to the environment
 
 Go into the config for your project
 
@@ -119,7 +119,7 @@ The logs may show that the password is not set. This is because we are using the
 
 Check your application at `localhost:8000` it should be running.
 
-## Conclusion:
+# Conclusion:
 
 This demonstration shows two ways of storing secrets:
 

@@ -9,15 +9,16 @@ Enter the name 'sample-flask-app' for the project, select 'Feestyle project' and
 ![](images/9.png)
 
 Under the heading 'Source Code Management', select the 'Git' radio button.
+
 Enter the URL of your fork of the `sample-flask-app` repository. e.g. `https://github.com/wilvk/sample-flask-app`
 
 ![](images/11.png)
 
-Under the heading 'Build' select 'Add build step' > 'Execute shell'.
+Under the heading `Build` select `Add build step`and thn seeleect `Execute shell`.
 
 ![](images/12.png)
 
-In the 'Command' box enter the following: 
+In the `Command` textbox enter the following:
 
 ```
 docker-compose down
@@ -28,7 +29,11 @@ docker-compose logs
 
 ![](images/13.png)
 
-Select 'Save'. Then from the main Jenkins menu select 'Build Now'.
+Select `Save`.
+
+Then from the main Jenkins menu select `Build Now`.
+
+Your app should now be building. It should take up to a minute or so to complete.
 
 ![](images/14.png)
 

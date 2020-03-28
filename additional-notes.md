@@ -1,17 +1,31 @@
 # Additional Notes
 
-### To get a terminal on the jenkins container
+## To get a terminal on the jenkins container
 
 ```bash
 appsec_get_jenkins_shell
 ```
 
-### remove jenkins-docker image (to clean up when we're done)
+## Jenkins working directory
+
+You can find the working directory at `/var/jenkins_home/workspace/`.
+
+## To remove the `jenkins-docker` image, container and volume:
 
 ```bash
 appsec_cleanup
 ```
 
-### Jenkins working directory
+## To stop the `jenkins-docker` container temporarily:
 
-You can find the working directory at `/var/jenkins_home/workspace/`.
+```bash
+appsec_start
+```
+
+## To restart a stopped `jenkins-docker` container:
+
+```bash
+appsec_start_jenkins
+```
+
+`
