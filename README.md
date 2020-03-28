@@ -8,4 +8,5 @@ Jenkins, docker and docker-compose in a container for building and deploying pro
 - [Logging In](logging-in.md)
 - [Building the Pipeline](building-the-pipeline.md)
 - [Handling Secrets](handling-secrets.md)
+- [Adding Hawkey](adding-hawkeye.md)
 - [Additional Notes](additional-notes.md)
