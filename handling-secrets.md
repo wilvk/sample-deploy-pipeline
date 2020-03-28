@@ -121,7 +121,7 @@ Check your application at `localhost:8000` it should be running.
 
 # Conclusion:
 
-This demonstration shows two ways of storing secrets:
+This section has shown two ways of storing secrets:
 
-- Ansible Vault
-- Jenkins Credential Store
+- Using Ansible Vault to encrypt our database credentials with a password.
+- Using Jenkins Credential Store to store our Ansible Vault password and then use this password to deecrypt our database credentials
