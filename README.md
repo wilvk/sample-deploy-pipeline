@@ -7,6 +7,6 @@ Jenkins, docker and docker-compose in a container for building and deploying the
 - [Getting Started](getting-started.md)
 - [Logging In](logging-in.md)
 - [Building the Pipeline](building-the-pipeline.md)
-- [Adding Hawkey](adding-hawkeye.md)
+- [Adding Hawkeye](adding-hawkeye.md)
 - [Handling Secrets](handling-secrets.md)
 - [Additional Notes](additional-notes.md)
