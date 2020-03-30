@@ -2,7 +2,7 @@
 
 From the side menu select `New item`.
 
-![](images/8.png)
+![](images/8a.png)
 
 Enter the name `sample-flask-app` for the project, select `Feestyle project` and click `OK`.
 
