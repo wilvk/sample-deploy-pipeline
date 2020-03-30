@@ -37,6 +37,6 @@ Your app should now be building. It should take up to a minute or so to complete
 
 ![](images/14.png)
 
-Once the build has finished, browse to `localhost:8000` to see your app.
+Once the build has completed, browse to `localhost:8000` to see your app.
 
 ![](images/15.png)
