@@ -4,7 +4,7 @@ The Jenkins web server is on `localhost:8080` You will see the following page.
 
 ![](images/2.png)
 
-The admin password is as described in the [Getting Started](./getting-started.md) section, or alternatiively by running `appsec_get_jenkins_admin_creds`.
+The admin password is as described in the [Getting Started](./getting-started.md) section, or alternatively by running `appsec_get_jenkins_admin_creds`.
 
 Install the recommended plugins
 
