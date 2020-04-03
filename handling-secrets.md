@@ -5,7 +5,7 @@
 On the host machine, shell into the container with the command:
 
 ```
-docker exec -it $(docker ps -qf "ancestor=jenkins-docker") bash 
+appsec_get_jenkins_shell
 ```
 
 ## Create an Ansible Vault file
@@ -16,7 +16,10 @@ ansible-vault create env_secrets
 
 Enter a password for the vault file. Make a note of your password.
 
-In the Vim editor, enter `-- INSERT --` mode by pressing 'i'.
+Note: Your password should usually be a random combination of letters, number and symbols, usually above 8 characters.
+If you have a password manager installed, it may help you generate a random password.
+
+In the Vim editor, enter `-- INSERT --` mode by pressing `i`.
 
 Enter the user name and password as following:
 
@@ -25,9 +28,11 @@ DB_USER=postgres
 DB_PASS=postgres
 ```
 
-Press `Esc` to exit insert mode. Enter ':wq' to write the changes and exit the editor.
+Press `Esc` to exit `-- INSERT --` mode.
 
-## Viewing the vault file
+Enter `:wq` to write the changes and exit the editor.
+
+## Viewing the Vault file
 
 To view the contents of the vault file, enter the command:
 
@@ -45,13 +50,13 @@ cat env_secrets
 
 Copy the encrypted vault file contents from the previous `cat env_secrets` command to the clipboard.
 
-Create a file in the sample-flask-app repository called `env_secrets` and paste the vault contents into this file.
+Create a file in the `sample-flask-app` repository in the base path called `env_secrets` and paste the encrypted Vault contents into this file.
 
-Save the file, commit the changes and push the commit to your fork of the repository. This is error-prone, so check what is pasted is what is in the original file before saving.
+Save the file, commit the changes and push the commit to your fork of the repository. This step is error-prone, so check what is pasted is what is in the original file before saving.
 
 ## Updating the app config
 
-In the sample-flask-app repository open the file `web/config.py` in your editor.
+In the `sample-flask-app` repository open the file `web/config.py` in your editor.
 
 Change line 7 and 8 from:
 
@@ -88,20 +93,20 @@ Browse to `localhost:8080` and login to the Jenkins server if necessary.
 
 ### Add the Ansible Vault password to Jenkins Credential Store
 
-From the Jenkins Dashboard, select 'Credentials'
-Click on the '(global)' link next to the 'Jenkins' link.
-Select 'Add Credentials'
-Change 'Kind' to 'Secret Text'
-Enter your password in the 'Secret' textbox
-Enter `ANSIBLE_VAULT_PASSWORD` in the 'Id' textbox
-Click 'OK'
+From the Jenkins Dashboard, select `Credentials`
+Click on the `(global)` link next to the `Jenkins` link.
+Select `Add Credentials`
+Change `Kind` to `Secret Text`
+Enter your password in the `Secret` textbox
+Enter `ANSIBLE_VAULT_PASSWORD` in the `Id` textbox
+Click `OK`
 
-### Add the Ansible Vault Password to the pipeline and export the database credentials to the environment
+### Add the Ansible Vault password to the pipeline and export the database credentials to the environment
 
-Go into the config for your project
+Go into the config for your project.
 
-Under 'Bindings', select the 'Add' dropdown box and select 'Secret text'
-In the 'Variable' textbox enter `ANSIBLE_VAULT_PASSWORD`
+Under `Bindings`, select the `Add` dropdown box and select `Secret text`.
+In the `Variable` textbox enter `ANSIBLE_VAULT_PASSWORD`
 
 ```
 set +x
@@ -110,16 +115,16 @@ docker-compose down; docker-compose up -d; sleep 10; docker-compose logs
 rm .vault_pass.txt
 ```
 
-- `set -x` prevents commands being output to the Jenkins logs. This is important as the credentials are passed to the environment variables as bash commands.
+- `set +x` prevents commands being output to the Jenkins logs. This is important as the credentials are passed to the environment variables as bash commands.
 - `rm .vault_pass.txt` cleans up the password file.
 
-Save the changes and select 'Build Now'.
+Save the changes and select `Build Now`.
 
 The logs may show that the password is not set. This is because we are using the default Postgres credentials. In a production environment the username/password should not be the default credentials.
 
 Check your application at `localhost:8000` it should be running.
 
-# Conclusion:
+# Conclusion
 
 This section has shown two ways of storing secrets:
 
