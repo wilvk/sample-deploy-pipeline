@@ -2,7 +2,7 @@
 
 Add the following to the sample-flask-app's `docker-compose.yml` file:
 
-```docker
+```yaml
 hawkeye:
     image: stono/hawkeye
     command: scan --target /usr/src/app
@@ -12,6 +12,6 @@ hawkeye:
 
 Add a build step to run Hawkeye with the following command:
 
-```
+```sh
 docker-compose run hawkeye
 ```
