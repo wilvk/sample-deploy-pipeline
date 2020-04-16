@@ -10,15 +10,6 @@ function appsec_colour_echo() {
     echo "$APPSEC_TEXT_START $1 $APPSEC_TEXT_END"
 }
 
-echo $_ $0 1>/dev/null
-
-if [[ "$_" = "$0" ]];
-then
-  appsec_colour_echo "error: script is being run directly."
-  appsec_colour_echo "please source this file. e.g. '${APPSEC_BOLD_START}source $0${APPSEC_BOLD_END}'."
-  exit 1
-fi
-
 function appsec_build() {
     docker build -t jenkins-docker .
 }
@@ -44,7 +35,7 @@ function appsec_list() {
 }
 
 function appsec_get_jenkins_shell() {
-    docker exec -it $(docker ps -qf "ancestor=jenkins-docker") bash 
+    docker exec -it $(docker ps -qf "ancestor=jenkins-docker") bash
 }
 
 function appsec_stop() {
