@@ -27,6 +27,8 @@ sleep 30
 docker-compose logs
 ```
 
+_(Note: if the build fails in the following steps, try increasing the sleep wait to 60 seconds or more)_
+
 Then select `Save`.
 
 ![](images/13.png)
