@@ -22,7 +22,7 @@ In the `Command` textbox enter the following:
 
 ```
 docker-compose down
-docker-compose up -d
+docker-compose up --detach --build
 sleep 30
 docker-compose logs
 ```
