@@ -4,13 +4,13 @@
 
 On the host machine, shell into the container with the command:
 
-```
+```sh
 appsec_get_jenkins_shell
 ```
 
 ## Create an Ansible Vault file
 
-```
+```sh
 ansible-vault create env_secrets
 ```
 
@@ -23,7 +23,7 @@ In the Vim editor, enter `-- INSERT --` mode by pressing `i`.
 
 Enter the user name and password as following:
 
-```
+```python
 DB_USER=postgres
 DB_PASS=postgres
 ```
@@ -60,15 +60,14 @@ In the `sample-flask-app` repository open the file `web/config.py` in your edito
 
 Change line 7 and 8 from:
 
-```python3
+```python
     DB_NAME = "postgres"
     DB_USER = "postgres"
-
 ```
 
 to:
 
-```python3
+```python
     DB_USER = os.environ["DB_USER"]
     DB_PASS = os.environ["DB_PASS"]
 
@@ -78,7 +77,7 @@ Save the changes.
 
 Open the file `.env' and add the following lines to the bottom of the file:
 
-```
+```sh
 DB_USER
 DB_PASS
 ```
@@ -105,10 +104,14 @@ Click `OK`
 
 Go into the config for your project.
 
-Under `Bindings`, select the `Add` dropdown box and select `Secret text`.
+Under the heading `Build environment`, select `Use secret text(s) or file(s)`.
+
+Under the heading `Bindings`, select the `Add` dropdown box and select `Secret text`.<br />
 In the `Variable` textbox enter `ANSIBLE_VAULT_PASSWORD`
 
-```
+Next, replace the first `Execute script` build step with the following:
+
+```sh
 set +x
 export $(echo "${ANSIBLE_VAULT_PASSWORD}" > .vault_pass.txt && ansible-vault view --vault-password-file=.vault_pass.txt env_secrets|xargs)
 docker-compose down; docker-compose up -d; sleep 10; docker-compose logs
@@ -122,7 +125,7 @@ Save the changes and select `Build Now`.
 
 The logs may show that the password is not set. This is because we are using the default Postgres credentials. In a production environment the username/password should not be the default credentials.
 
-Check your application at `localhost:8000` it should be running.
+Check your application at [localhost:8000](http://localhost:8000), it should be running.
 
 # Conclusion
 

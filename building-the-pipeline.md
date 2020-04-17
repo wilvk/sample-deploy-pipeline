@@ -1,7 +1,5 @@
 # Building the pipeline
 
-## Job setup
-
 From the side menu select `New item`.
 
 <img src="images/building-the-pipeline-new-item-link.png" width="600"/>
@@ -22,7 +20,7 @@ Under the heading `Build` select `Add build step` and then select `Execute shell
 
 In the `Command` textbox enter the following:
 
-```
+```sh
 docker-compose down
 docker-compose up -d
 sleep 30
@@ -33,7 +31,7 @@ Then select `Save`.
 
 <img src="images/building-the-pipeline-save.png" width="600"/>
 
-Then from the job task menu, select `Build Now`.
+Then from the job task list, select `Build Now`.
 
 Your app should now be building. It should take up to a minute or so to complete.
 

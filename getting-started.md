@@ -30,7 +30,7 @@ The Jenkins web server is on [localhost:8080](http://localhost:8080) You will se
 
 <img src="images/getting-started-unlock-jenkins.png" width="600"/>
 
-The admin password is as described in the [Getting Started](#getting-started) section, or alternatively by running `appsec_get_jenkins_admin_creds`.
+The admin password is as described above, or alternatively by running `appsec_get_jenkins_admin_creds`.
 
 Install the recommended plugins
 
@@ -52,6 +52,8 @@ Select `Start using Jenkins`.
 
 <img src="images/getting-started-jenkins-is-ready.png" width="600"/>
 
-Jenkins should now be setup.
+Jenkins should now be setup. 
+
+If you need to log in to Jenkins again later, the username is `admin` and the password is the same password used earlier.
 
 <img src="images/getting-started-welcome-to-jenkins.png" width="600"/>
