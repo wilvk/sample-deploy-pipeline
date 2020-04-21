@@ -30,7 +30,7 @@ function appsec_get_jenkins_admin_creds() {
 }
 
 function appsec_list() {
-  FUNCTION_LIST=$(grep -E '^function\sappsec' SOURCEME.sh|sed -e 's/function \(appsec.*\)() {/\1/')
+  FUNCTION_LIST=$(grep -E '^function\sappsec' ${APPSEC_ROOT_PATH}/SOURCEME.sh|sed -e 's/function \(appsec.*\)() {/\1/')
   appsec_colour_echo $FUNCTION_LIST
 }
 
