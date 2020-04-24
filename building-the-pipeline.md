@@ -22,10 +22,12 @@ In the `Command` textbox enter the following:
 
 ```sh
 docker-compose down
-docker-compose up -d
+docker-compose up --detach --build
 sleep 30
 docker-compose logs
 ```
+
+_(Note: if the build fails in the following steps, try increasing the sleep wait to 60 seconds or more)_
 
 Then select `Save`.
 
