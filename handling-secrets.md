@@ -17,7 +17,7 @@ ansible-vault create env_secrets
 Enter a password for the vault file. Make a note of your password.
 
 Note: Your password should usually be a random combination of letters, number and symbols, usually above 8 characters.
-If you have a password manager installed, it may help you generate a random password.
+If you have a password manager installed, you can use it to generate a random password.
 
 In the Vim editor, enter `-- INSERT --` mode by pressing `i`.
 
@@ -70,7 +70,6 @@ to:
 ```python
     DB_USER = os.environ["DB_USER"]
     DB_PASS = os.environ["DB_PASS"]
-
 ```
 
 Save the changes.
@@ -92,36 +91,33 @@ Browse to `localhost:8080` and login to the Jenkins server if necessary.
 
 ### Add the Ansible Vault password to Jenkins Credential Store
 
-From the Jenkins Dashboard, select `Credentials`
-Click on the `(global)` link next to the `Jenkins` link.
-Select `Add Credentials`
-Change `Kind` to `Secret Text`
-Enter your password in the `Secret` textbox
-Enter `ANSIBLE_VAULT_PASSWORD` in the `Id` textbox
-Click `OK`
+1. From the Jenkins Dashboard, select `Credentials`
+2. Click on the `(global)` link next to the `Jenkins` link.
+3. Select `Add Credentials`
+4. Change `Kind` to `Secret Text`
+5. Enter your password in the `Secret` textbox
+6. Enter `ANSIBLE_VAULT_PASSWORD` in the `Id` textbox
+7. Select `OK`
 
 ### Add the Ansible Vault password to the pipeline and export the database credentials to the environment
 
-Go into the config for your project.
+1. Go into the config for the `sample-flask-app` job.
+2. Under the heading `Build Environment`, select `Use secret text(s) or file(s)`.
+3. Under the heading `Bindings`, select the `Add` dropdown box and select `Secret text`.<br />
+4. In the `Variable` textbox enter `ANSIBLE_VAULT_PASSWORD`
+5. Replace the first `Execute script` build step with the following:
 
-Under the heading `Build environment`, select `Use secret text(s) or file(s)`.
+    ```sh
+    set +x
+    export $(echo "${ANSIBLE_VAULT_PASSWORD}" > .vault_pass.txt && ansible-vault view --vault-password-file=.vault_pass.txt env_secrets|xargs)
+    docker-compose down; docker-compose up -d; sleep 10; docker-compose logs
+    rm .vault_pass.txt
+    ```
+    - `set +x` prevents commands being output to the Jenkins logs. This is important as the credentials are passed to the environment variables as bash commands.
 
-Under the heading `Bindings`, select the `Add` dropdown box and select `Secret text`.<br />
-In the `Variable` textbox enter `ANSIBLE_VAULT_PASSWORD`
+    - `rm .vault_pass.txt` cleans up the password file.
 
-Next, replace the first `Execute script` build step with the following:
-
-```sh
-set +x
-export $(echo "${ANSIBLE_VAULT_PASSWORD}" > .vault_pass.txt && ansible-vault view --vault-password-file=.vault_pass.txt env_secrets|xargs)
-docker-compose down; docker-compose up -d; sleep 10; docker-compose logs
-rm .vault_pass.txt
-```
-
-- `set +x` prevents commands being output to the Jenkins logs. This is important as the credentials are passed to the environment variables as bash commands.
-- `rm .vault_pass.txt` cleans up the password file.
-
-Save the changes and select `Build Now`.
+6. Save the changes and select `Build Now`.
 
 The logs may show that the password is not set. This is because we are using the default Postgres credentials. In a production environment the username/password should not be the default credentials.
 
