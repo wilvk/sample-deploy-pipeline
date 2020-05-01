@@ -58,14 +58,14 @@ Save the file, commit the changes and push the commit to your fork of the reposi
 
 In the `sample-flask-app` repository open the file `web/config.py` in your editor.
 
-Change line 7 and 8 from:
+Replace the following lines:
 
 ```python
-    DB_NAME = "postgres"
     DB_USER = "postgres"
+    DB_PASS = "postgres"
 ```
 
-to:
+with:
 
 ```python
     DB_USER = os.environ["DB_USER"]
