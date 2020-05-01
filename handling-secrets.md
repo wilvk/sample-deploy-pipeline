@@ -128,4 +128,4 @@ Check your application at [localhost:8000](http://localhost:8000), it should be 
 This section has shown two ways of storing secrets:
 
 - Using Ansible Vault to encrypt our database credentials with a password.
-- Using Jenkins Credential Store to store our Ansible Vault password and then use this password to deecrypt our database credentials
+- Using Jenkins Credential Store to store our Ansible Vault password and then use this password to decrypt our database credentials
