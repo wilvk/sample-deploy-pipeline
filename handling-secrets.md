@@ -78,20 +78,20 @@ with:
 
 Save the changes.
 
-Open the file `.env' and add the following lines to the bottom of the file:
+Open the file `.env` and add the following lines to the bottom of the file:
 
 ```sh
 DB_USER
 DB_PASS
 ```
 
-This will allow the environment variables to be passed through from the jenkins host to the application.
+This will allow the environment variables to be passed through from the Jenkins host to the application.
 
 Do another commit and push with your changes.
 
 <img src="images/secrets3.gif" width="600"/>
 
-## Set the environment variables in the jenkins host for the deploy pipeline
+## Set the environment variables in the Jenkins host for the deploy pipeline
 
 Browse to `localhost:8080` and login to the Jenkins server if necessary.
 
