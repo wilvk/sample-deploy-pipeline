@@ -46,6 +46,8 @@ To view the encrypted vault file enter:
 cat env_secrets
 ```
 
+<img src="images/secrets1.gif" width="600"/>
+
 ## Add the vault file to the sample-flask-app
 
 Copy the encrypted vault file contents from the previous `cat env_secrets` command to the clipboard.
@@ -53,6 +55,8 @@ Copy the encrypted vault file contents from the previous `cat env_secrets` comma
 Create a file in the `sample-flask-app` repository in the base path called `env_secrets` and paste the encrypted Vault contents into this file.
 
 Save the file, commit the changes and push the commit to your fork of the repository. This step is error-prone, so check what is pasted is what is in the original file before saving.
+
+<img src="images/secrets2.gif" width="600"/>
 
 ## Updating the app config
 
@@ -84,6 +88,8 @@ DB_PASS
 This will allow the environment variables to be passed through from the jenkins host to the application.
 
 Do another commit and push with your changes.
+
+<img src="images/secrets3.gif" width="600"/>
 
 ## Set the environment variables in the jenkins host for the deploy pipeline
 
