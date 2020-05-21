@@ -1,6 +1,6 @@
 # Adding Hawkeye to the deploy pipeline
 
-Add the following to the sample-flask-app's `docker-compose.yml` file:
+Add the following to the sample-flask-app's `docker-compose.yml` file (under `services`):
 
 ```yaml
 hawkeye:
